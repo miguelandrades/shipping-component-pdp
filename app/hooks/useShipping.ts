@@ -8,9 +8,7 @@ export interface ShippingOption {
 }
 
 export function useShipping() {
-  // 1. LAZY INITIALIZER: O estado já nasce com o valor do localStorage se existir
   const [cep, setCep] = useState<string>(() => {
-    // Como o Next.js roda no servidor primeiro, precisamos checar se estamos no navegador
     if (typeof window !== "undefined") {
       return localStorage.getItem("@ghfly:cep") || "";
     }
@@ -21,8 +19,6 @@ export function useShipping() {
   const [error, setError] = useState("");
   const [options, setOptions] = useState<ShippingOption[] | null>(null);
 
-  // 2. O useEffect agora só serve para ESCREVER no localStorage quando o CEP mudar
-  // Não precisamos mais do setCep aqui dentro para carregar!
   useEffect(() => {
     if (cep.length === 9) {
       // 00000-000

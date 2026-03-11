@@ -10,7 +10,7 @@ Esta é uma solução de cálculo de frete desenvolvida para otimizar a convers�
 - **Lucide React**: Ícones leves e consistentes.
 - **Vercel**: Deployment contínuo (CI/CD).
 
-## 🧠 Decisões de Arquitetura (Nível Pleno)
+## 🧠 Decisões de Arquitetura
 
 - **Custom Hooks**: Toda a lógica de negócio foi extraída para o `useShipping.ts`, separando a responsabilidade de "como calcular" (Controller) de "como exibir" (View).
 - **Lazy State Initialization**: Otimização de performance no `useState` para sincronizar o estado com o `localStorage` sem causar renderizações em cascata.
